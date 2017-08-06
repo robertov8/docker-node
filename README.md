@@ -18,7 +18,7 @@ https://hub.docker.com/_/node/
 If you run the node image using `docker run` you can use the `-e` flag to
 override `NPM_CONFIG_LOGLEVEL`.
 
-```
+```console
 # Create container
 $ docker build -t rrrj/node-8alpine github.com/robertov82008/docker-node.git
 
@@ -42,7 +42,7 @@ $ docker run -it rrrj/node-8alpine bash
 If you are running npm commands you can use `--loglevel` to control the
 verbosity of the output.
 
-```
+```console
 $ docker run --rm --name node-8alpine node:8-alpine npm --loglevel=warn ...
 ```
 
@@ -68,7 +68,7 @@ $ docker run \
 
 ### Run Commands
 
-```
+```console
 $ docker-compose up
 $ docker-compose run docker-node ...
 ```
