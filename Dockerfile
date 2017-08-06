@@ -2,7 +2,8 @@ FROM node:alpine
 
 # install system packages
 RUN apk add --no-cache \
-    bash
+    bash \
+    git
 
 # install npm packages
 RUN set -x \
