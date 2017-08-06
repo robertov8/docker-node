@@ -1,7 +1,5 @@
 FROM node:alpine
 
-ENV NPM_CONFIG_LOGLEVEL warn
-
 RUN set -x \
 	# install npm packages
     && npm install --silent -g \
@@ -9,5 +7,3 @@ RUN set -x \
         gulp-cli \
         grunt-cli \
         bower
-
-EXPOSE 8080

@@ -1,11 +1,19 @@
 version: "2"
 
 services:
-    node:
-        image: "node:8"
-        environment:
-            - NODE_ENV=production
+    serve:
+        image: node:alpine
         volumes:
             - ./:/usr/src/app
+        environment:
+            - NPM_CONFIG_LOGLEVEL warn
+            - NODE_ENV=production
         expose:
             - "8080"
+
+    local:
+        build: .
+        volumes:
+            - ./:/usr/src/app
+        environment:
+            - NPM_CONFIG_LOGLEVEL warn
