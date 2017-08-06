@@ -1,19 +1,12 @@
 version: "2"
 
 services:
-    serve:
-        image: node:alpine
+    docker-node:
+        build: .
         volumes:
-            - ./:/usr/src/app
+            - .:/usr/src/app
         environment:
             - NPM_CONFIG_LOGLEVEL warn
             - NODE_ENV=production
         expose:
-            - "8888"
-
-    local:
-        build: .
-        volumes:
-            - ./:/usr/src/app
-        environment:
-            - NPM_CONFIG_LOGLEVEL warn
+            - "8080"

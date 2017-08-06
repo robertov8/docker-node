@@ -11,14 +11,30 @@ Docker with node, npm, gulp, grunt, bower and create-react-native-app
 https://hub.docker.com/_/node/
 
 
+## Working with the container
+
 ### Docker Run
 
 If you run the node image using `docker run` you can use the `-e` flag to
 override `NPM_CONFIG_LOGLEVEL`.
 
 ```
+# Create container
 $ docker build -t rrrj/node-8alpine github.com/robertov82008/docker-node.git
-$ docker run --rm -e NPM_CONFIG_LOGLEVEL=warn --name node-8alpine rrrj/node-8alpine commands ...
+
+# Run commands
+$ docker run \
+    --rm \
+    -e NPM_CONFIG_LOGLEVEL=warn \
+    -e NODE_ENV=production \
+    -v $PWD:/usr/src/app \
+    --name node-8alpine \
+    -w /usr/src/app \
+    rrrj/node-8alpine \
+    commands ...
+
+# Open terminal
+$ docker run -it rrrj/node-8alpine bash
 ```
 
 ### NPM run
@@ -37,22 +53,22 @@ complete `Dockerfile`. In such cases, you can run a Node.js script by using the
 Node.js Docker image directly:
 
 ```console
-$ docker build -t robertov82008/node-8alpine .
-$ docker run -it --rm --name node-8alpine robertov82008/node-8alpine -v "$PWD":/usr/src/app -w
-/usr/src/app node:4 node your-daemon-or-script.js
+$ docker run \
+    --rm \
+    -e NPM_CONFIG_LOGLEVEL=warn \
+    -e NODE_ENV=production \
+    -v $PWD:/usr/src/app \
+    --name node-8alpine \
+    -w /usr/src/app \
+    rrrj/node-8alpine \
+    node your-daemon-or-script.js
 ```
 
-### Composer 
+## Working with the Compose
+
+### Run Commands
 
 ```
-# docker-compose up serve
+$ docker-compose up
+$ docker-compose run docker-node ...
 ```
-
-### Run Commands 
-
-```
-docker-compose up --build
-docker-compose run local packages ... 
-```
-
-
