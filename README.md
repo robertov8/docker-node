@@ -69,6 +69,7 @@ $ docker run \
 ### Run Commands
 
 ```console
+$ git clone https://github.com/robertov82008/docker-node.git && cd docker-node
 $ docker-compose up
 $ docker-compose run docker-node ...
 ```
