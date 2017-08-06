@@ -45,7 +45,6 @@ verbosity of the output.
 ```console
 $ docker run \
     --rm \
-    -e NPM_CONFIG_LOGLEVEL=warn \
     -e NODE_ENV=production \
     -v $PWD:/usr/src/app \
     -w /usr/src/app \
