@@ -9,7 +9,7 @@ services:
             - NPM_CONFIG_LOGLEVEL warn
             - NODE_ENV=production
         expose:
-            - "8080"
+            - "8888"
 
     local:
         build: .

@@ -17,7 +17,8 @@ If you run the node image using `docker run` you can use the `-e` flag to
 override `NPM_CONFIG_LOGLEVEL`.
 
 ```
-$ docker run --rm -e NPM_CONFIG_LOGLEVEL=warn --name node-8alpine node:8-alpine node ...
+$ docker build -t rrrj/node-8alpine github.com/robertov82008/docker-node.git
+$ docker run --rm -e NPM_CONFIG_LOGLEVEL=warn --name node-8alpine rrrj/node-8alpine commands ...
 ```
 
 ### NPM run
@@ -46,7 +47,6 @@ $ docker run -it --rm --name node-8alpine robertov82008/node-8alpine -v "$PWD":/
 ```
 # docker-compose up serve
 ```
-
 
 ### Run Commands 
 
