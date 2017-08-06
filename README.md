@@ -28,8 +28,8 @@ $ docker run \
     -e NPM_CONFIG_LOGLEVEL=warn \
     -e NODE_ENV=production \
     -v $PWD:/usr/src/app \
-    --name node-8alpine \
     -w /usr/src/app \
+    --name node-8alpine \
     rrrj/node-8alpine \
     commands ...
 
@@ -43,7 +43,15 @@ If you are running npm commands you can use `--loglevel` to control the
 verbosity of the output.
 
 ```console
-$ docker run --rm --name node-8alpine node:8-alpine npm --loglevel=warn ...
+$ docker run \
+    --rm \
+    -e NPM_CONFIG_LOGLEVEL=warn \
+    -e NODE_ENV=production \
+    -v $PWD:/usr/src/app \
+    -w /usr/src/app \
+    --name node-8alpine \
+    rrrj/node-8alpine \
+    npm --loglevel=warn ...
 ```
 
 ### Run a single Node.js script
@@ -58,8 +66,8 @@ $ docker run \
     -e NPM_CONFIG_LOGLEVEL=warn \
     -e NODE_ENV=production \
     -v $PWD:/usr/src/app \
-    --name node-8alpine \
     -w /usr/src/app \
+    --name node-8alpine \
     rrrj/node-8alpine \
     node your-daemon-or-script.js
 ```
